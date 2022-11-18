@@ -5,9 +5,9 @@ __Tenzies__ is a browser game created on React, the essence of which is to roll 
 Content
 -----------
 - Overview
-	- Screenshot
-	- Rules
-	- Links
+	- [Screenshot](https://github.com/1KiritoS1/tenzies/#screenshot)
+	- [Rules](https://github.com/1KiritoS1/tenzies/#rules)
+	- [Links](https://github.com/1KiritoS1/tenzies/#links)
 
 Overview
 -----------
