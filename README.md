@@ -13,7 +13,7 @@ Overview
 -----------
 ### Screenshot 
 [![Tenzies](https://github.com/1KiritoS1/tenzies/blob/master/src/screenshots/tenzies.png "Tenzies")](https://1kiritos1.github.io/tenzies/) 
-[![Тут текст](адрес до картинки)](ссылка на страничку YouTube)
+
 ### Rules
 ____
 *The rules are simple - roll the dice, collecting the same values until you collect all ten. 
