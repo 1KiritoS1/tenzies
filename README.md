@@ -12,8 +12,8 @@ Content
 Overview
 -----------
 ### Screenshot 
-![Tenzies](https://github.com/1KiritoS1/tenzies/blob/master/src/screenshots/tenzies.png "Tenzies")(https://1kiritos1.github.io/tenzies/) 
-
+[![Tenzies](https://github.com/1KiritoS1/tenzies/blob/master/src/screenshots/tenzies.png "Tenzies")](https://1kiritos1.github.io/tenzies/) 
+[![Тут текст](адрес до картинки)](ссылка на страничку YouTube)
 ### Rules
 ____
 *The rules are simple - roll the dice, collecting the same values until you collect all ten. 
@@ -28,4 +28,4 @@ ____
 	- [AnimateCSS](https://animate.style/) - All animation I used in Tenzies was implemented using this library. 
 	- [Confetti](https://github.com/alampros/react-confetti) - React component to draw confetti
 	- [Nanoid](https://github.com/ai/nanoid#react) - ID generator for JavaScipt
-- Website - [Tenzies](https://1kiritos1.github.io/tenzies/)
+- [Tenzies](https://1kiritos1.github.io/tenzies/)
