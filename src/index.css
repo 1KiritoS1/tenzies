@@ -262,20 +262,9 @@ button {
 	margin-top: 20px;
 }
 
-.count.active .count-text {
-	transform: translate3d(0px, -220%, 0px) scale3d(1, 1, 1)
-		rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
-}
-
-.count.active .count-text-up {
-	transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1)
-		rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
-}
-
 .count-text {
 	position: relative;
     transform-style: preserve-3d;
-    transition: all .4s ease;
     z-index: 1;
 }
 
@@ -284,11 +273,23 @@ button {
     transform: translate3d(0, 220%, 0) scale3d(1, 1, 1) 
 		rotateX(0) rotateY(0) rotateZ(0) skew(0deg, 0deg);
     transform-style: preserve-3d;
-    transition: all .3s ease;
+
     white-space: nowrap;
     z-index: 2;
 }
 
+.count.active .count-text {
+	opacity: 0;
+	transition: transform .3s ease, opacity .1s ease; 
+	transform: translate3d(0px, -220%, 0px) scale3d(1, 1, 1)
+		rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+}
+
+.count.active .count-text-up {
+	transition: all .3s ease; 
+	transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1)
+		rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+}
 
 /* --- Media --- */
 @media screen and (max-width: 991px) {

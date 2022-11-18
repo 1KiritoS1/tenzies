@@ -18,6 +18,13 @@ function App() {
 		/> 
 	));
 	
+	/* --- Counter --- */
+	const [countUp, setCountUp] = useState('?');
+	const [counter, setCounter] = useState(false);
+	const [countText, setCountText] = useState('count-text');
+	const [countTextUp, setCountTextUp] = useState('count-text-up');
+
+
 	/* --- Timer --- */
 	const [timer, setTimer] = useState(0);
 	const [bestTime, setBestTime] = useState(
@@ -100,12 +107,17 @@ function App() {
 		}));
 	}
 
+	function rollCounter() {
+		const temp = countText;
+
+		setCounter(false);
+		setCountText(countTextUp);
+		setCountTextUp(temp);
+	}
+
 	function rollCubes() {
-		const counter = document.querySelector('.count');
-		counter.classList.add('active');
-		setTimeout(() => {
-			counter.classList.remove('active');
-		}, 400);
+		setCounter(true);
+		setTimeout(() => rollCounter(), 400); // Counter roll animation
 
 		if (!tenzies) {
 			setNumbers(oldCubes => oldCubes.map(cube => {
@@ -113,6 +125,7 @@ function App() {
 					cube : generateNewCube();
 			}));
 			setCount(prevCount => prevCount + 1);
+			setCountUp(count + 1);
 			changeColor();
 		} else {
 			resetGame();
@@ -159,12 +172,14 @@ function App() {
 				</div>
 
 				<button onClick={rollCubes}>
-					{tenzies ? 'New Game' : 'Roll'}
+					{ tenzies ? 'New Game' : 'Roll' }
 				</button>
-				<div className="count"> 
-					<div className="count-text">?</div>
+				<div className={'count' + (counter ? ' active ' : '')}> 
+					<div className={countText}>
+						{ countUp }
+					</div>
 					<div 
-						className="count-text-up"
+						className={countTextUp}
 						style={{color: `${color}`}}
 					>
 						{ count }
