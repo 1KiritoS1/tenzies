@@ -1,0 +1,400 @@
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background: #f1ded0;
+	font-family: 'Karla', sans-serif;
+	/* font-family: 'Inter', sans-serif; */
+	/* font-family: 'Roboto Mono', monospace; for Timer */
+}
+
+main {
+	width: min(70vw, 600px);
+	max-height: 600px;
+
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+
+	background: #F5F5F5;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.10);
+	border-radius: 10px;
+	padding: 33px 35px;
+	margin: 32px;
+}
+
+button {
+	cursor: pointer;
+	border: none;
+
+	display: flex;
+	align-items: center;
+
+	font-size: 17px;
+	font-weight: 700;
+	font-family: 'Karla', sans-serif;
+	line-height: 19px;
+	
+	color: #FFF;
+	background: #5035FF;
+	box-shadow: 0px 3.2px 7.68px rgba(0, 0, 0, 0.18);
+	border-radius: 4px;
+
+	transition: all .2s ease-out;
+	padding: 8px 36px 9px;
+	margin: 0 auto;
+}
+
+button:hover {
+	background: #3719ff;
+	box-shadow: 0px 3.2px 7.68px rgba(0, 0, 0, 0.38);
+	transform: translateY(-1px);
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	display: block;
+	width: 100%;
+}
+
+/* --- App Container --- */
+.container {
+	min-height: 100vh;
+
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+/* --- Animation --- */
+.title,
+.text {
+	animation: fadeInDown;
+	animation-duration: .5s;
+}
+
+.win-block {
+	animation: flipInX;
+	animation-duration: 1s;
+
+	margin: -8px 0;
+}
+
+.count,
+button {
+	animation: fadeInUp;
+	animation-duration: .5s;
+}
+
+.cube {
+	animation: rotateIn;
+	animation-duration: .4s;
+}
+
+@keyframes animatedBg {
+    0% { 
+		background-position: 0 0 
+	}
+
+    100% {
+		background-position: -500px 0 
+	}
+}
+/* --- Animation --- */
+
+
+.title {
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 30px;
+	letter-spacing: -0.03em;
+	color: #2B283A;
+
+	margin-bottom: 20px;
+}
+
+.text {
+	font-size: 15px;
+	line-height: 16px;
+	font-family: 'Inter', sans-serif;
+	color: #4a4e74;	
+}
+
+.text--win {
+	font-size: 50px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.timer {
+	letter-spacing: -0.03em;
+	font-family: 'Roboto Mono', monospace;
+}
+
+.text--rainbow {
+	background: linear-gradient(90deg,
+	#f00, #ff2b00, #f50, #ff8000, #fa0,
+	#ffd500, #ff0, #d4ff00, #af0, #80ff00, #5f0, #2bff00, #0f0,
+	#00ff2b, #0f5, #00ff80, #0fa, #00ffd5, #0ff, #00d4ff, #0af,
+	#007fff, #05f, #002bff, #00f, #2a00ff, #50f, #7f00ff, #a0f,
+	#d400ff, #f0f, #ff00d4, #f0a, #ff0080, #f05, #ff002b, #f00);
+	-webkit-animation: animatedBg 5s linear infinite alternate;
+	-webkit-text-fill-color: #0000;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.stats {
+	width: 100%;
+
+	gap: 25px;
+	margin-top: 25px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cubes {
+	display: grid;
+	grid-template: auto auto / repeat(5, 1fr);
+	gap: 20px;
+	margin: 25px 0;
+}
+
+.cube {
+	width: 50px;
+	height: 50px;
+
+    cursor: pointer;
+	background: #fff;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;  
+	padding: 6px;
+}
+
+.face-1 {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.face-2,
+.face-3 {
+	display: flex;
+	justify-content: space-between;
+}
+
+.face-2 .dot:nth-of-type(2),
+.face-3 .dot:nth-of-type(1) {
+	align-self: flex-end;
+}
+
+.face-3 .dot:nth-of-type(2) {
+	align-self: center;
+}
+
+.face-4,
+.face-5,
+.face-6 {
+	display: flex;
+	justify-content: space-between;
+}
+
+.face-4 .column,
+.face-5 .column,
+.face-6 .column {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+
+.face-5 .column:nth-of-type(2) {
+	justify-content: center;
+}
+
+.value {
+	font-size: 1.7rem;
+	font-weight: 700;
+}
+
+.dot {
+	display: block;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #000;
+}
+
+.count {
+	width: 40px;
+	height: 40px;
+
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 20px;
+
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	color: #fff;
+	background: #5035ff;
+	border-radius: 50%;
+
+	margin-top: 20px;
+}
+
+.count.active .count-text {
+	transform: translate3d(0px, -220%, 0px) scale3d(1, 1, 1)
+		rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+}
+
+.count.active .count-text-up {
+	transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1)
+		rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+}
+
+.count-text {
+	position: relative;
+    transform-style: preserve-3d;
+    transition: all .4s ease;
+    z-index: 1;
+}
+
+.count-text-up {
+	position: absolute;
+    transform: translate3d(0, 220%, 0) scale3d(1, 1, 1) 
+		rotateX(0) rotateY(0) rotateZ(0) skew(0deg, 0deg);
+    transform-style: preserve-3d;
+    transition: all .3s ease;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+
+/* --- Media --- */
+@media screen and (max-width: 991px) {
+	.title {
+		font-size: 32px; 
+		margin-bottom: 14px;
+	}
+
+	.text {
+		font-size: 15px;
+		line-height: 18px;
+	}	
+}
+
+@media screen and (max-width: 767px) {
+	main {
+		width: min(85vw, 510px);
+		padding: 33px;
+	}
+
+	.text--win {
+		font-size: 46px;
+	}
+}
+
+@media screen and (max-width: 575px) {
+	main {
+		width: min(86vw, 480px);
+	}
+	.title {
+		font-size: 33px;
+		margin-bottom: 12px;
+	}
+	
+	.text {
+		max-width: 365px;
+	}
+	
+	.stats {
+		margin-top: 22px;
+	}
+
+	.cubes {
+		gap: 18px;
+	}
+}
+
+@media screen and (max-width: 460px) {
+	main {
+		width: min(90vw, 380px);
+		padding: 24px;
+	}
+
+	.title {
+		font-size: 32px;
+	}
+
+	.text {
+		max-width: 276px;
+	}
+
+	.text--win {
+		font-size: 40px;
+	}
+
+	.cubes {
+		gap: 14px;
+	}
+
+	.cube {
+		width: 46px;
+		height: 46px;
+	}
+
+	button {
+		padding: 7px 33px 8px;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	main {
+		width: min(92vw, 320px);
+		padding: 30px 10px;
+	}
+
+	.title {
+		margin-bottom: 10px;
+	}
+
+	.text {
+		font-size: 14px;
+		max-width: 230px;
+	}
+
+	.stats {
+		margin-top: 20px;
+		max-width: inherit;
+	}
+
+	.cube {
+		width: 40px;
+		height: 40px;
+		padding: 5px;
+	}
+	
+	button {
+		padding: 6px 30px 7px;
+	}
+}
